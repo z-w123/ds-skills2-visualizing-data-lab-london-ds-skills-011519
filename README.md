@@ -1,11 +1,6 @@
 
-# Data Visualization Lab
-
-## Introduction
-This lab will give you some structured practice working with the concepts introduced in the previous lesson.
-
-# Objectives
-You will be able to:
+# Data Visualization
+## SWBAT:
 * Understand matplotlib plot structure for drawing basic plots.
 * Visualize data using scatterplots, barplots and histograms
 
@@ -28,22 +23,31 @@ Make a vertical bar graph using `plt.bar()` for the following set of data:
 import numpy as np
 import matplotlib.pyplot as plt
 
-y = None
-x =None
-labels = None
+y = [40,30,10,50,5]
+labels = ['Crime', 'Sci/fi', 'Drama', 'Comedy', 'Action', 'Documentary' ]
 
-# Set a figure size
+x = np.arange(len(y))
+
+# Create a new figure object
+plt.figure(figsize =(8,6))
+
 
 # Plot vertical bars of fixed width by passing x and y values to .bar() function 
+plt.bar(x, y)
 
 # Give a title to the bar graph
+plt.title('Jim\'s Video Library')
+plt.ylabel('Number of movies')
+plt.xlabel('Genres')
+plt.xticks(x, labels)
+
 
 # Output the final plot
-
+plt.show()
 ```
 
 
-![png](index_files/index_4_0.png)
+![png](index_files/index_2_0.png)
 
 
 ## Exercise 2
@@ -70,19 +74,25 @@ Looking the scatter plot, how would you describe the relationship between these 
 
 
 ```python
-weight = None
-mpg = None
+weight = [2750, 3125, 2100, 4082, 2690, 3640, 4380, 2241, 2895, 3659]
+mpg = [29, 23, 33, 28, 20, 21, 14, 25, 31, 17]
 
 # Set the figure size in inches
+plt.figure(figsize=(8,6))
 
-# Plot with scatter()
+plt.scatter(weight, mpg, label = "weight vs. mileage" )
 
-# Set x and y axes labels and give titles
+# Set x and y axes labels
+plt.xlabel('Car weight')
+plt.ylabel('Miles per Gallon')
 
+plt.title('Consumer Cars')
+plt.legend()
+plt.show()
 ```
 
 
-![png](index_files/index_6_0.png)
+![png](index_files/index_4_0.png)
 
 
 ## Exercise 3
@@ -98,18 +108,20 @@ Joe is the branch manager at a bank. Recently, Joe been receiving customer feedb
 
 
 ```python
-x = None
+x = [43.1, 35.6, 37.5, 36.5, 45.3, 43.4, 
+     40.3, 50.2, 47.3, 31.2, 42.2, 45.5, 
+     30.3, 31.4, 35.6, 45.2, 54.1, 45.6, 
+     36.5, 43.1]
 
 #Plot the distogram with hist() function
+plt.hist(x, bins = 5)
 
-# Label, give title and show the plot
-
+plt.xlabel('Waiting time')
+plt.ylabel('Number of customers')
+plt.title('Customer waiting times')
+plt.show()
 ```
 
 
-![png](index_files/index_9_0.png)
+![png](index_files/index_7_0.png)
 
-
-## Summary
-
-Hopefully this lab has given you some good practice working with creating plots in Python using Matplotlib.
